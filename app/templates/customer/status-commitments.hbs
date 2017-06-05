@@ -1,0 +1,15 @@
+{{models-table data=model columns=columns useNumericPagination=true currentPageNumber=8 filteringIgnoreCase=true action='received'}}
+
+{{#if isCommitRecvd}}
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" {{action "dismissModal"}}>×</button>
+            </div>
+            <div class="modal-body">
+                Commitment {{commitmentName}} has been successfully received.
+            </div>
+        </div>
+    </div>
+{{/if}}

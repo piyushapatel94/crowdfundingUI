@@ -1,0 +1,120 @@
+<div class="container">
+	<div class="row">
+		<h2>Add Rewards</h2>
+		<div class="panel-body">
+        <form action="" >
+
+			<div class="input-group control-group after-add-more">
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+				    {{validated-input2 type="text" model=this valuePath="rewardtitle" name="addmore[]" placeholder="Reward Title" errormessage1=rewardtitleerrormessage}}
+                    {{rewardtitleerrormessage}}
+                    </div>
+                  </div>
+                  <br/>
+                   <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+                    {{validated-input2 type="text" model=this valuePath="rewardamount" name="addmore[]" placeholder="Minimum Donation amount required to obtain this reward (Rs.)" errormessage1=rewardamounterrormessage}}
+                    {{rewardamounterrormessage}}
+                    </div>
+                  </div>
+                  <br/>
+                   <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+                    {{validated-input2 type="text" model=this valuePath="rewarddescription" name="addmore[]" placeholder="Reward Description" errormessage1=rewarddescriptionerrormessage}}
+                    {{rewarddescriptionerrormessage}}
+                    </div>
+                  </div>
+                  <br/>                  
+				  <div class="input-group-btn">
+                    <button type="button" class="btn btn-color" {{action "saveRewards"}}>Save</button> 
+                    <button class="btn btn-color add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
+				  </div>
+                </div>
+			</div>
+
+        </form>
+		
+
+        <!-- Copy Fields-These are the fields which we get through jquery and then add after the above input,-->
+        <div class="copy-fields hide">
+			<div class="control-group input-group" style="margin-top:20px">
+
+				<div class="cols-sm-10">
+                    <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+                        {{return1}}
+				    {{validated-input2 type="text" model=this valuePath="rewardtitles" id="return1" name="addmore[]" placeholder="Reward Title" errormessage1=rewardtitleerrormessage}}
+                    {{rewardtitleerrormessage}}
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+                    {{validated-input2 type="text" model=this valuePath="rewardamounts" name="addmore[]" placeholder="Minimum Donation amount required to obtain this reward (Rs.)" errormessage1=rewardamounterrormessage}}
+                    {{rewardamounterrormessage}}
+                  </div>
+                  </div>
+                  <br/>
+                   <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-triangle-right"></span>
+                    </div>
+                    <div class="inputs">
+                    {{validated-input2 type="text" model=this valuePath="rewarddescriptions" name="addmore[]" placeholder="Reward Description" errormessage1=rewarddescriptionerrormessage}}
+                    {{rewarddescriptionerrormessage}}
+                    </div>
+                  </div>
+                  <br/>               
+				<div class="input-group-btn"> 
+                  <button type="button" class="btn btn-color" {{action "saveRewards"}}>Save</button>
+                  <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+				</div>
+                </div>				
+			</div>
+        </div>
+	</div>
+</div>
+</div>
+{{#if isSaveReward}}
+    {{#modal-dialog close="saveRewards"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+        Reward successfully created.
+        <div class="modal-header">
+<button type="button" class="close" {{action "home2"}}>ok</button>
+</div>
+    {{/modal-dialog}}
+{{/if}}
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+	//here first get the contents of the div with name class copy-fields and add it to after "after-add-more" div class.
+      $(".add-more").click(function(){ 
+          var html = $(".copy-fields").html();
+          $(".after-add-more").after(html);
+      });
+	//here it will remove the current value of the remove button which has been pressed
+      $("body").on("click",".remove",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+    });
+</script>

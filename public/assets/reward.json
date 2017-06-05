@@ -1,0 +1,12 @@
+{
+    "reward1":{
+        "rewardtitle":"myreward1",
+        "rewardamount":"5000",
+        "rewarddescription":"This is rewards1"
+    },
+    "reward2":{
+        "rewardtitle":"myreward2",
+        "rewardamount":"6000",
+        "rewarddescription":"This is rewards2"
+    }
+}

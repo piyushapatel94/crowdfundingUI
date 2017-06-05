@@ -1,0 +1,13 @@
+{{froala-editor
+  options=(hash
+    theme="royal"
+    charCounterCount=false
+    heightMin=300
+  )
+}}
+
+{{#froala-content}}
+  {{someFroalaContent}}
+{{/froala-content}}
+<br>
+<button type="button" class="btn btn-color" {{action 'save'}}>Save</button>

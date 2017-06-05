@@ -1,0 +1,237 @@
+<div class="container">
+    <div class="panel-title text-center">
+        <h1 class="title">Campaign Details</h1>
+    </div>
+    {{#paper-stepper currentStep=currentStep onStepChange=(action (mut currentStep))
+                    onStepperCompleted=(action "createCampaign") as |stepper|}}
+        {{#stepper.step label="Create Campaign" as |step|}}
+            {{#step.body}}
+            {{!-- Campaign details --}}
+                <div class="row main">
+                    <div class="main-login start-campaign-center">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </div>
+                                        {{validated-input2 type="text" model=this valuePath="campaigntitle" placeholder="Campaign Title" errormessage1=errormessage1}}
+                                        {{errormessage1}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </div>
+                                        <div class="documentdropdown">
+                                            {{select-component dropdowntype="Campaign Category" listitem=CampaignCategory selecteditemlist=selectedtypes}}
+                                            {{errormessage3}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </div>
+                                        {{textarea class="form-control" rows="2" value=content shortdescription="shortdescription" maxlength="160" valuePath="shortdescription" id="shortdescription" placeholder="(Short Description) Should not be allowed more than 160 char" errormessage1=errormessage2}}
+                                        {{errormessage2}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </div>
+                                        {{textarea class="form-control" rows="5" maxlength="500" value=contents valuePath="campaignstory" placeholder="(Campaign Story) Should not be allowed more than 500 char" errormessage1=errormessage4}}
+                                        {{errormessage4}}
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-picture"></span>
+                                        </div>
+                                        <input
+                                            multiple="true"
+                                            onchange={{action "upload"}}
+                                            accept="image/png,image/jpeg"
+                                            type="file"/>
+                                     </div>
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-facetime-video"></span>
+                                        </div>
+                                        <div class="videoupload">
+                                        <input
+                                            multiple="true"
+                                            onchange={{action "videoupload"}}
+                                            accept="video/mp4,video/AVI"
+                                            type="file"/>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {{/step.body}}
+            {{#step.actions as |nextStep previousStep|}}
+                {{#paper-button primary=true raised=true onClick=(action nextStep)}}
+                    Continue
+                {{/paper-button}}
+                {{#paper-button onClick=(action previousStep)}}
+                    Back
+                {{/paper-button}}
+            {{/step.actions}}
+        {{/stepper.step}}
+
+        {{!-- add as many steps as necessary --}}
+        {{#stepper.step label="Set Goals" as |step|}}
+            {{#step.body}}
+            {{!-- Content here. Probably some form. --}}
+                <div class="row main">
+                    <div class="main-login start-campaign-center">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-triangle-right"></span>
+                                        </div>
+                                        {{validated-input2 type="text" model=this valuePath="goalamount" placeholder="Set Goal Amount" errormessage1=errormessage5}}
+                                        {{errormessage5}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-triangle-right"></span>
+                                        </div>                  
+                                    {{pikaday-input class="form-control" value=startdeliverydate valuePath="startdeliverydate"  onSelection=(action (mut startdeliverydate)) 
+                                    placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}
+                                    {{startdateerrormessage}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-triangle-right"></span>
+                                        </div>
+                                        {{validated-input2 type="text" model=this valuePath="startproject" placeholder="Amount to Start Project" errormessage1=startprojecterror}}
+                                        {{startprojecterror}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-triangle-right"></span>
+                                        </div>                 
+                                    {{pikaday-input class="form-control" value=enddeliverydate valuePath="enddeliverydate"  onSelection=(action (mut enddeliverydate)) 
+                                    placeholder="End Project Date" readonly=true format="DD/MMM/YYYY"}}
+                                    {{enddateerrormessage}}
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {{/step.body}}
+            {{#step.actions as |nextStep previousStep|}}
+                {{#paper-button primary=true raised=true onClick=(action nextStep)}}
+                    Continue
+                {{/paper-button}}
+                {{#paper-button onClick=(action previousStep)}}
+                    Back
+                {{/paper-button}}
+            {{/step.actions}}
+        {{/stepper.step}}
+
+        {{!-- add as many steps as necessary --}}
+        {{#stepper.step label="Set Rewards" as |step|}}
+            {{#step.body}}
+            {{!-- Content here. Probably some form. --}}
+                <div class="col-sm-12">
+                    <h3 style="text-align: right" {{action "addRewards"}} class="mouse">+ Rewards</h3>
+                </div>
+                <div class="row main">
+                    <div class="main-login">
+                        <form class="form-horizontal" method="post" action="#">
+                            <div class="reward-left-align">
+                                <div class="cols-sm-10" {{action "addRewards"}}>
+                                    <p><strong>Rs. 1000</strong></p>
+                                    <p>Thank You note</p>
+                                    <p>Each donor who donates a minimum amount of Rs. 1,000 will receive a personalised thank you note.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>         
+            {{/step.body}}
+            {{#step.actions as |nextStep previousStep|}}
+                {{#paper-button primary=true raised=true onClick=(action "toggleModal1")}}
+                    Continue
+                {{/paper-button}}
+                {{#if isShowingModal}}
+{{#modal-dialog close="toggleModal1"
+targetAttachment="center"
+translucentOverlay=true}}
+<p>Some Fields are invalid and Empty.Please</p>
+<p>fill those Fields..!!!!</p>
+{{/modal-dialog}}
+{{/if}}
+
+{{#if isShowingModalss}}
+{{#modal-dialog close="toggleModal1"
+targetAttachment="center"
+translucentOverlay=true}}
+<p>Campaign created...!!!!</p>
+<div class="modal-header">
+<button type="button" class="close" {{action "home"}}>ok</button>
+</div>
+{{/modal-dialog}}
+{{/if}}
+                {{#paper-button onClick=(action previousStep)}}
+                    Back
+                {{/paper-button}}
+            {{/step.actions}}
+        {{/stepper.step}}
+    {{/paper-stepper}}
+</div>
+
+{{#if isAddReward}}
+    
+        {{partial 'addrewards'}}
+    
+{{/if}}
+
+{{#if isSaveReward}}
+    {{#modal-dialog close="saveRewards"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+        Reward successfully created.
+        <div class="modal-header">
+<!--<button type="button" class="close" {{action "home2"}}>ok</button>-->
+</div>
+    {{/modal-dialog}}
+{{/if}}

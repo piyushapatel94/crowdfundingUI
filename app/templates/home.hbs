@@ -1,0 +1,128 @@
+{{#if showAdmin}}
+    {{partial 'service-provider'}}
+{{else if showFund}}
+    {{partial 'fund-raiser'}}
+{{else if showFunder}}
+    {{partial 'browse'}}
+{{else if showCustomer}}
+    {{partial 'customer'}}
+{{else}}
+    {{partial 'browse'}}
+{{/if}}
+{{#if isDefault}}
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Dashboard </h2>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 align="left">My Campaigns</h3>
+        </div>
+        <div class="col-sm-6">
+            <h3 align="right">{{#link-to 'start-campaign'}}+New Campaigns {{/link-to}}</h3>
+        </div>
+    </div>
+</div>
+    <br/>
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 align="left">My Gypsy Wish</h3>
+                <hr>
+            </div>
+            <div class="col-sm-12">
+                <p align="left">Rajasthani Gypsy dancers from the mighty Thar Desert travel Europe in a caravan to meet their long lost cousins - The Romani, Gypsys of Europe.</p>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 align="left">10 Donors</h4>
+            </div>
+            <div class="col-sm-4">
+                <h4>20 Shares</h4>
+            </div>
+            <div class="col-sm-4">
+                <h4 align="Right">Fund Transfer Initiated</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        50%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 align="left"> &#x20B9; 25000 raised of &#x20B9; 50000 </h4>
+            </div>
+            <div class="col-sm-4">
+                <h4>86 Days Left out of 90 days</h4>
+            </div>
+
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+
+
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 align="left">PatriotDogs</h3>
+                <hr>
+            </div>
+            <div class="col-sm-12">
+                <p align="left">It is a campaign aimed to help 100 #PatriotDogs live a happy retired life. </p>
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 align="left">15 Donors</h4>
+            </div>
+            <div class="col-sm-4">
+                <h4>5 Shares</h4>
+            </div>
+            <div class="col-sm-4">
+                <h4 align="Right">Funding Closed</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:35%">
+                        35%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 align="left">&#x20B9; 50000 raised of &#x20B9; 50000 </h4>
+            </div>
+            <div class="col-sm-4">
+                <h4>6 Days Left out of 60 Days</h4>
+            </div>
+
+            <div class="col-sm-4">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    {{/if}}

@@ -1,0 +1,217 @@
+<script>
+    // Enable navigation prompt
+    //window.onbeforeunload = function() {
+    //    return true;
+    //};
+    // Remove navigation prompt
+    //window.onbeforeunload = null;
+    $(window).bind('beforeunload', function() {
+        if($('input').val() !== '') {
+            return "It looks like you have input you haven't submitted."
+        }
+    });
+</script>
+
+<div class="row text-center">
+
+    <div class="col-sm-8">
+        <div class="thumbnail">
+            <h2 align="center"> {{c_title}} </h2>
+            <img src={{imgURL}} class="img-rounded" height="250" width="100%">
+            <p><strong>{{desc}}</strong>
+            </p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p align="left">Friday 27 November 2015</p>
+                </div>
+                <div class="col-sm-6">
+                    <p align="right"> {{createdby}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <br>
+            <button class="btn btn-color" data-toggle="modal" {{action 'callRewards'}}><strong>Contribute Now </strong>
+            </button>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <br>
+            <h3> &#x20B9; 7,210 </h3>
+            <h4> raised of &#x20B9; 25,000</h4>
+            <br>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="thumbnail">
+            <h3> 40 </h3>
+            <h4> Doners</h4>
+            <br>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="thumbnail">
+            <h3> 6 Days </h3>
+            <h5> left out of 90 days </h5>
+            <br>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div>
+            <div align="center">
+                <button class="btn btn-color">Shares <span class="badge"> 7</span> 
+                </button>
+            </div><br/><br/>
+        </div>
+    </div>
+    
+    <div class="col-sm-2">
+        <div>
+            <div align="center">
+                <button class="btn btn-color">Likes <span class="badge"> 25</span>
+                </button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="col-sm-2">
+        <div>
+            <div align="center">
+                <button class="btn btn-color">Spam <span class="badge"> 2</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-8">
+        <div class="thumbnail">
+            <div class="panel text-center">
+
+                <div class="panel-heading">
+                    <h4>Story </h4>
+                </div>
+
+                <div class="panel-body">
+                    <p align="center"> <img src={{imgURL}} class="img-rounded" height="200" width="300"></p>
+                    <p align="center"><b><i> “We become the stories we absorb” <br> Stories travel. Stories bridge. Stories connect. </i> </b></p>
+                    <p align="justify"> Not long ago, these were the same stories that we filled up our vacations with- summer, winter and the others in between. Stories which led us to believe that endings are also a new kind of beginning. Stories, depicted via the medium of films, which influenced us in more ways than one. But today, in a digitally hyper connected world, these stories have disappeared for our Children.</p>
+                    <p align="center"> <img src="assets/image/s_1.jpg" class="img-rounded" height="200" width="300"></p>
+                    <p align="justify"> In life, many of us hold on to just so many of things… We hold on to insults, grudges, traumas, fights, criticisms and what not. While it is necessary to think things through and have a problem solving approach, is it really necessary to keep it alive and kicking all the time by consistently focusing on it? Is it helpful to hold on to all your pain? Taking your attention and your energy off your problems can be immensely therapeutic. While it helps you de-stress and relax your tired frantic mind, the process of incubation can also lead to significant new insights actually enabling you to solve the problem in a better way than before.</p>
+                    <p align="center"> <img src="assets/image/s_2.jpg" class="img-rounded" height="200" width="300"></p>
+                </div>
+
+                <div class="panel-footer">
+                    <h4> About Fundraiser </h4>
+                    
+                 <!--   <button class="btn btn-color" data-toggle="modal" {{action 'aboutfundraiser'}}><strong>About Fundraiser </strong></button>   -->
+                 <!--   <p align="justify"> Dear All, I am home-maker and full-time mother from Vadodara (Gujarat) having 4-year-old Aryaman born with Down’s Syndrome (DS). A child with DS can have multiple defects starting from heart disease, hearing loss, vision problems, dental problems to multiple physical & mental disabilities and risks of developing major diseases such as leukaemia, Alzheimer’s disease etc. as they grow-up.</p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+
+        <div class="thumbnail">
+
+            <div class="panel">
+
+                <div class="panel-heading">
+                    <h4 align="center">Comments</h4>
+                </div>
+
+                <div class="panel-body">
+                    <h7 align="left">Leave a Comment:</h7>
+                    <form role="form">
+                        <div class="form-group">
+                            {{textarea class="form-control" rows="3" value=content id="comments"}}
+                            {{errormessage}}
+                        </div>
+                         <div class="btngroup">
+                        <button type="submit" class="btn btn-color"  disabled={{disabled}} align="left"{{action "facebook"}}>Submit</button>
+                        {{#if isShowingModal}}
+                        {{#modal-dialog close="toggleModal"
+                        targetAttachment="center"
+                        translucentOverlay=true}}
+                        <p>Comment Successfully Submitted</p>
+                        <div class="modal-header">
+                            <button type="button" class="close" {{action "submit"}}>ok</button>
+                        </div>
+                        {{/modal-dialog}}
+                        {{/if}}
+                        </div>
+                    </form>
+                    <br>
+                    <p><span class="badge">2</span> Comments:</p><br>
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+                            <img src="assets/image/s_1.jpg" class="img-circle" height="30" width="30" alt="Avatar">
+                        </div>
+                        <div class="col-sm-10">
+                            <h4>Anja <br><small>Sep 29, 2015, 9:12 PM</small></h4>
+                            <p>Keep up the GREAT work! I am cheering for you!! </p>
+                            <br>
+                        </div>
+
+                        <div class="col-sm-2 text-center">
+                            <img src="assets/image/s_2.jpg" class="img-circle" height="30" width="30" alt="Avatar">
+                        </div>
+
+                        <div class="col-sm-10">
+                            <h4>John Row <br><small>Sep 25, 2015, 8:25 PM</small></h4>
+                            <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life.</p>
+                            <br>
+                            <p><span class="badge">1</span> Comment:</p><br>
+                            <div class="row">
+                                <div class="col-sm-2 text-center">
+                                    <img src="assets/image/s_1.jpg" class="img-circle" height="30" width="30" alt="Avatar">
+                                </div>
+                                <div class="col-xs-10">
+                                    <h4>Nested Bro <br><small>Sep 25, 2015, 8:28 PM</small></h4>
+                                    <p>Me too! WOW!</p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+                    View Older Comments
+                </div>
+            </div>
+            
+        </div>
+<div>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           <div class="col-sm-12" align="center">
+               <div class="col-sm-4">
+                    <a href="#" target="_self" class="fa fa-facebook" {{action 'facebook'}}></a>
+               </div>
+                <div class="col-sm-4">
+                    <a href="#" target="_blank" class="fa fa-twitter"   {{action 'twitter'}}></a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="#" target="_blank" class="fa fa-linkedin"   {{action 'linkedin'}}></a>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>

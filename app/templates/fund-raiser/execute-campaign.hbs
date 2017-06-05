@@ -1,0 +1,33 @@
+   <div class="register-logo">
+    
+    <h1 align="center">Execute Campaign</h1>
+</div>
+{{models-table data=model columns=columns useNumericPagination=true currentPageNumber=8 filteringIgnoreCase=true action='authorize'}}
+
+{{#if isCampAuthorize}}
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" {{action "dismissModal"}}>×</button>
+            </div>
+            <div class="modal-body">
+               Campaign Name {{campaignname}} has been successfully initiated.
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+{{#if isCampClosure}}
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" {{action "dismissModal"}}>×</button>
+            </div>
+            <div class="modal-body">
+               Campaign Name {{campaignname}} has been successfully Completed.
+            </div>
+        </div>
+    </div>
+{{/if}}

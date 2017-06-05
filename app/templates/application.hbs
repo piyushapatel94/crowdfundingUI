@@ -1,0 +1,22 @@
+
+{{!-- The following component displays Ember's default welcome message. --}}
+{{!-- Feel free to remove this! --}}
+{{partial 'header'}}
+
+<div class="container">
+    <div class="col-sm-12">
+        <br/><br/><br/>
+        {{outlet}}
+        <br/><br/><br/>
+    </div>
+</div>
+
+{{#if isShowingModel}}
+    {{#modal-dialog close="toggleModel"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+        {{partial 'help'}}
+    {{/modal-dialog}}
+{{/if}}
+
+{{partial 'footer'}}

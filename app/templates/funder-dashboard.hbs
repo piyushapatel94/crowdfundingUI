@@ -1,0 +1,334 @@
+<div class="container-fluid text-center">
+   <div class="row">
+      <div class="col-sm-12">
+         <h2>Funder Dashboard </h2>
+      </div>
+   </div>
+</div>
+<div class="container-fluid text-center">
+   <div class="row">
+      <div class="col-sm-6">
+         <h3 align="left">My Donations</h3>
+      </div>
+   </div>
+</div>
+   <br/>
+   {{#if isSeedfunding}}
+   <div class="well">
+      <div class="row">
+         <div class="col-sm-12">
+            <h3 align="left">Seed Funding</h3>
+            <hr><hr>
+         </div>
+        
+      </div>
+      <br/><br/>
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left">Pledge &#x20B9;10000</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4> &nbsp; </h4>
+         </div>
+         <div class="col-sm-4">
+             <h4 align="Right">Reward</h4>
+            <h4 align="Right">T-Shirt</h4>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                  100%
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left"> &#x20B9;35000 raised of &#x20B9;50000 </h4>
+         </div>
+         <div class="col-sm-4">
+            <h4>10 Days Left out of 90 days</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4 align="right"> Fund Transfered</h4>
+         </div>
+      </div>
+   </div>
+   <div>
+{{#paper-button raised=true primary=true onClick=(action "provideFeedback")}}
+Provide Feedback
+{{/paper-button}}
+</div>
+{{/if}}
+
+ {{#if isHamariganga}}
+   <div class="well">
+      <div class="row">
+         <div class="col-sm-12">
+            <h3 align="left">Hamari Ganga</h3>
+            <hr><hr>
+         </div>
+       
+      </div>
+      <br/><br/>
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left">Pledge &#x20B9;15000</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4> &nbsp; </h4>
+         </div>
+         <div class="col-sm-4">
+             <h4 align="Right">Reward</h4>
+            <h4 align="Right">T-Shirt</h4>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:66.67%">
+                  66.67%
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left"> &#x20B9;35000 raised of &#x20B9;50000 </h4>
+         </div>
+         <div class="col-sm-4">
+            <h4>20 Days Left out of 60 days</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4 align="right"> Fund Transfered</h4>
+         </div>
+      </div>
+   </div>
+   <div>
+{{#paper-button raised=true primary=true onClick=(action "provideFeedback")}}
+Provide Feedback
+{{/paper-button}}
+</div>
+{{/if}}
+
+
+
+
+
+
+{{#if isPlanttree}}
+   <div class="well">
+      <div class="row">
+         <div class="col-sm-12">
+            <h3 align="left">Plant Tree</h3>
+            <hr><hr>
+         </div>
+         
+      </div>
+      <br/><br/>
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left">Pledge &#x20B9;20000</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4> &nbsp; </h4>
+         </div>
+         <div class="col-sm-4">
+         <h4 align="Right">Reward</h4>                         
+         <h4 align="Right">T-Shirt</h4>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                  70%
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-4">
+            <h4 align="left"> &#x20B9;35000 raised of &#x20B9;50000 </h4>
+         </div>
+         <div class="col-sm-4">
+            <h4>16 Days Left out of 30 days</h4>
+         </div>
+         <div class="col-sm-4">
+            <h4 align="right"> Fund Transfered</h4>
+         </div>
+      </div>
+   </div>
+   <div>
+{{#paper-button raised=true primary=true onClick=(action "provideFeedback")}}
+Provide Feedback
+{{/paper-button}}
+</div>
+   {{/if}}
+
+
+
+{{#if showFeedback}}
+    {{#modal-dialog close="provideFeedback"
+                    targetAttachment="center"
+                    translucentOverlay=true}}
+            {{partial 'feedback'}}
+        {{/modal-dialog}}
+{{/if}}
+
+{{#if isAll}}
+<div class="well">
+<div class="row">
+<div class="col-sm-12">
+<h3 align="left">KASHISH - Diverse, One</h3>
+<hr><hr>
+</div>
+<div class="col-sm-12">
+<p align="left">KASHISH 2017 is the 8th edition of KASHISH Mumbai International Queer Film Festival. This year, the festival will focus on the diversity of the LGBTQ community.</p>
+</div>
+</div>
+<br/><br/>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left">Pledge &#x20B9;5000</h4>
+</div>
+<div class="col-sm-4">
+<h4> &nbsp; </h4>
+</div>
+<div class="col-sm-4">
+<h4 align="Right">T-Shirt</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+70%
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left"> &#x20B9;35000 raised of &#x20B9;50000 </h4>
+</div>
+<div class="col-sm-4">
+<h4>86 Days Left out of 90 days</h4>
+</div>
+<div class="col-sm-4">
+<h4 align="right"> Fund Transfered</h4>
+</div>
+</div>
+</div>
+<div class="well">
+<div class="row">
+<div class="col-sm-12">
+<h3 align="left">Environmental Impact</h3>
+<hr><hr>
+</div>
+<div class="col-sm-12">
+<p align="left">Patna is 6th most polluted city in the world. We the youth of Patna wish to plant more trees in few months</p>
+</div>
+</div>
+<br><br>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left">Pledge &#x20B9;25000</h4>
+</div>
+<div class="col-sm-4">
+<h4>&nbsp;</h4>
+</div>
+<div class="col-sm-4">
+<h4 align="Right">T-Shirt+Pen</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+50%
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left"> &#x20B9;35000 raised of &#x20B9;70000 </h4>
+</div>
+<div class="col-sm-4">
+<h4>6 Days Left out of 90 days</h4>
+</div>
+<div class="col-sm-4">
+<h4 align="right"> T-shirt+Pen Not Received</h4>
+</div>
+</div>
+</div>
+<div class="well">
+<div class="row">
+<div class="col-sm-12">
+<h3 align="left">U can change lives</h3>
+<hr>
+<hr>
+</div>
+<div class="col-sm-12">
+<p align="left">Lets help all children learn and follow their dreams</p>
+</div>
+</div>
+<br><br>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left">Pledge &#x20B9;50000</h4>
+</div>
+<div class="col-sm-4">
+<h4>&nbsp;</h4>
+</div>
+<div class="col-sm-4">
+<h4 align="Right">T-Shirt+Pen</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="progress">
+<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+100%
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<h4 align="left"> &#x20B9;75000 raised of &#x20B9;70000 </h4>
+</div>
+<div class="col-sm-4">
+<h4>0 Days Left out of 90 days</h4>
+</div>
+<div class="col-sm-4">
+<h4 align="right"> Campaign Closed</h4>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+&nbsp;
+</div>
+<div class="col-sm-4">
+&nbsp;
+</div>
+<div class="col-sm-4">
+{{#paper-button raised=true primary=true onClick=(action "provideFeedback")}}
+Provide Feedback
+{{/paper-button}}
+</div>
+</div>
+</div>
+{{/if}}
+{{#if showFeedback}}
+{{#modal-dialog close="provideFeedback"
+targetAttachment="center"
+translucentOverlay=true}}
+{{partial 'feedback'}}
+{{/modal-dialog}}
+{{/if}}

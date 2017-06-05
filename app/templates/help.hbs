@@ -1,0 +1,28 @@
+<!-- Define a new accordion-list -->
+{{#accordion-list as |accordion|}}
+    <!-- Iterate over an array of items -->
+    <h3 class="center-align">Help?</h3>
+    {{#each listItem as |item|}}
+        <!-- For each element in list create an 'accordion.item' -->
+        {{#accordion.item as |accordionItem|}}
+            <!-- Create a 'toggle' and a 'panel' for the item -->
+            {{#accordionItem.toggle}}
+                <i class="fa fa-angle-right"></i>
+		        <div class="modal-header" style="width:770px">
+    		        <h4 class="modal-title">
+                        {{item.name}}
+					</h4>
+				</div>
+            {{/accordionItem.toggle}}
+            
+            <!-- Clicking on the 'toggle' will display the contents of the 'panel' -->
+            {{#accordionItem.panel}}
+                <div class="modal-content" style="width:770px">
+                    <div class="modal-body">
+				        {{item.description}}				
+				    </div>
+			    </div>
+            {{/accordionItem.panel}}
+        {{/accordion.item}}
+    {{/each}}
+{{/accordion-list}}

@@ -1,0 +1,38 @@
+<div class="login-background">
+        <div class="login-box">
+            <div class="login-box-body">
+                <div class="text-color-title">
+                    <h2><b>Reset Password</b></h2>
+                </div>
+                <br>
+                <div class="col-sm-6-btm">
+                    <div class="form-inline">
+                    <br>
+                    <div class="text-reset">
+                        <div class="input-group">
+                            <p> Please enter your email address or phone number</p>
+                            <div class="errors">                                	                         
+                                {{validated-input2 type="text" model=this valuePath='email' placeholder='Email address or phone number' errormessage1=errormessage}}
+                                {{errormessage}}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    </div>
+                    <br><br>
+                    <div class="btngroup">
+                    <button type="button" class="btn btn-color" {{action 'toggleModal'}}> Submit</button>
+                    {{#if isShowingModal}}
+                        {{#modal-dialog close="toggleModal" targetAttachment="center" translucentOverlay=true}}
+                              <p>Enter your OTP</p>
+                              {{validated-input  type="text" model=this valuePath='otp' placeholder='OTP'errormessage1=otperrormessage}}
+                              <br>
+                              <button type="button" class="btn btn-color" {{action 'resetpassword'}}disabled={{v-get this 'isInvalid'}}>ok</button>
+                              
+                        {{/modal-dialog}}
+                    {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

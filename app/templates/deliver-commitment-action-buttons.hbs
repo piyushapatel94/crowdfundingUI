@@ -1,0 +1,6 @@
+
+{{#if record.delStatus}}
+    Delivered
+{{else}}
+    <button {{action 'sendAction' 'action' record}}>Deliver</button>
+{{/if}}

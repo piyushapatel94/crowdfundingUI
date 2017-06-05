@@ -1,0 +1,6 @@
+
+{{#if record.regStatus}}
+    Authorized
+{{else}}
+    <button {{action 'sendAction' 'action' record}}>Authorize</button>
+{{/if}}

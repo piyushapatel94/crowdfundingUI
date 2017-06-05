@@ -1,0 +1,57 @@
+{{#if showValidation}}
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" {{action "dismissModal"}}>×</button>
+            </div>
+            <div class="modal-body">
+                Not Authorized
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="login-background">
+        <div class="login-box">
+            <div class="login-box-body">
+                <div class="text-color-title">
+                    <h1><b>Login</b></h1>
+                </div>
+                <br>
+                <div class="col-sm-6-btm">
+                    <div class="form-inline">
+                    <br>
+                    <div class="text-box">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </div>
+                            <div class="error">
+                                {{validated-input type="text" model=this valuePath='email' placeholder='Email Id' }}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="text-box">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-lock"></span>
+                            </div>
+                            {{validated-input type="password" value='password'  model=this valuePath='password' placeholder='Password'}}
+                        </div>
+                    </div>
+                    <br>
+                    {{#link-to 'confirmemail'}}forgot password{{/link-to}}
+                    </div>
+                    <br>
+                    {{errormessage}}
+                    <div class="btngroup">
+                    <button type="button" class="btn btn-color" {{action 'login'}} disabled={{v-get this 'isInvalid'}}> Sign In</button>
+                    <button type="button" class="btn btn-color" {{action 'register'}}> Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}

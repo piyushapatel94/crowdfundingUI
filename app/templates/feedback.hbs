@@ -1,0 +1,74 @@
+<div class="container">
+    <h3 class="center-align">Please provide Feedback</h3>
+    <div class="modal-header" style="width:770px">
+        <div class="form-group centered-form">
+            <div class="row">
+                <div class="cols-sm-4">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-triangle-right"></span>
+                        </div>
+                        <textarea class="form-control" rows="2" id="comments" placeholder="Comments"></textarea>
+                    </div>
+                    <div class="cols-sm-4">
+                        <div class="input-group">  
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-triangle-right"></span>
+                            </div>
+                            {{validated-input2 type="text" model=this valuePath="Ratings" placeholder="Ratings (out of 5)" errormessage1=Ratingserrormessage}}
+                            {{Ratingserrormessage}}
+                        </div>
+                    
+                        {{#paper-button raised=true primary=true onClick=(action "submitFeedback")}}
+                            Submit
+                        {{/paper-button}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    {{#if feedbackForFunder}}
+        {{#modal-dialog close="feedbackFunder"
+                    targetAttachment="center"
+                    translucentOverlay=true}}
+            <h3 class="center-align">Please provide Feedback</h3>
+            <div class="modal-header" style="width:770px">
+                <h4 class="modal-title">
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-triangle-right"></span>
+                                </div>
+                                <textarea class="form-control" rows="2" id="thirdgoal" placeholder="Campaign Goal/Conditions 3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        {{/modal-dialog}}
+    {{/if}}
+
+    {{#if feedbackForCampaign}}
+        {{#modal-dialog close="feedbackCampaign"
+                    targetAttachment="center"
+                    translucentOverlay=true}}
+            <h3 class="center-align">Please provide Feedback</h3>
+            <div class="modal-header" style="width:770px">
+                <h4 class="modal-title">
+                    <div class="form-group">
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-triangle-right"></span>
+                                </div>
+                                <textarea class="form-control" rows="2" id="thirdgoal" placeholder="Campaign Goal/Conditions 3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+            </div>
+        {{/modal-dialog}}
+    {{/if}}-->
+</div>

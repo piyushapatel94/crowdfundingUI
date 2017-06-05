@@ -1,0 +1,27 @@
+<!--
+<div class="tab-content">
+<div id="Bids" class="tab-pane fade in active">
+-->
+<div class="register-logo">
+    <h1 align="center">Bids</h1>
+</div>
+<div>
+    {{models-table data=model columns=columns useNumericPagination=true currentPageNumber=8 filteringIgnoreCase=true action='authorize'}}
+</div>
+{{#if isFunderAuthorize}}
+{{#modal-dialog close="toggleModal"
+targetAttachment="center"
+translucentOverlay=true}}
+<!--    Modal content-->
+<h4><span class="glyphicon glyphicon-lock"></span> Bids Approval</h4>
+Do you want to Approve Bid?
+<div class="modal-body">
+    <button type="button" class="btn btn-color" {{action "approvebids"}}> Approve</button>
+    <button type="button" class="btn btn-color" {{action "dismissModal"}}> Reject</button>
+</div>
+{{/modal-dialog}} 
+{{/if}}
+<!--
+</div>
+</div>
+-->

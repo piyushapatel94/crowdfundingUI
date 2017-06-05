@@ -1,0 +1,20 @@
+<div class="register-logo">
+    
+    <h1 align="center">Deliver Commitments</h1>
+</div>
+
+    {{models-table data=model columns=columns useNumericPagination=true currentPageNumber=8 action='authorize'}}
+
+{{#if isCommitAuthorize}}
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" {{action "dismissModal"}}>×</button>
+            </div>
+            <div class="modal-body">
+              {{eligible}} Commitments has been successfully Delivered.
+            </div>
+        </div>
+    </div>
+{{/if}}

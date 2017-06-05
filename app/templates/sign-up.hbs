@@ -1,0 +1,151 @@
+{{#if showRegResponse}}
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" {{action "dismissModal"}}>×</button>
+        </div>
+        <div class="modal-body">
+            You have been successfully registered
+            <br>
+            <button type="button" class="btn btn-color" {{action "regOK"}}>OK</button>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="signup-background">
+    <div class="signup-box">
+        <div class="signup-box-body">
+
+            <div class="col-md-6-header">
+                <h3 class="text-color">Sign up</h3>
+            </div>
+
+            <div class="col-sm-6-btm">
+
+                <div class="form-group">
+                    <br>
+                    <div class="text-color">
+                        <label class="col-sm-4">First Name</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='fname' placeholder='First Name'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Last Name</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='lname' placeholder='Last Name'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">User Type</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='usertype' placeholder='User Type'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Organisation</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-briefcase"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='Organisation' placeholder='Organisation'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Organisation name</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-hand-right"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='Organisationname' placeholder='Organisation name'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Phone Number</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </div>
+                        {{input type="number" model=this valuePath='phone' placeholder='Phone Number'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Email Id</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </div>
+                        {{input type="text" model=this valuePath='email' placeholder='Email id'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Password</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </div>
+                        {{input type="password" model=this valuePath="password" placeholder='Password'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <div class="text-color">
+                        <label class="col-sm-4">Retype Password</label>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </div>
+                        {{input type="password" valuePath="confirmpassword" model=this placeholder='Retype Password'}}
+                    </div>
+                    <br>
+                </div>
+
+                <div class="btngroup">
+                    <button type="button" class="btn btn-color" {{action 'registerUser'}}> Submit </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}

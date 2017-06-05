@@ -1,0 +1,75 @@
+
+<br>
+<br>
+<div class="padding">
+<div class= "Instructions">
+<h3>Terms and Condations</h3>
+
+
+ 
+<p>
+<b>  </b>
+<ol type="1">
+    <li class="agreementNoClr">You have to fullfill the amount till reward dilivery date</li>
+    <li class="agreementNoClr">The first half amount should me fullfilled as per its dilivery date</li>
+    <li class="agreementNoClr">Once the first half amount date is completed then the fund amount will be taken for processing and would not be refunded</li>
+    <li class="agreementNoClr">On reading all terms and condation you can proceed to pay your amount by selecting submitt button which will apear after you tick</li>
+</ol>
+</p>   
+
+<!--<p>
+<b> Instructions for accessing test </b>
+<ol type="1">
+    <li class="agreementNoClr"> Read the notes above titled “Befor beggining the test” and “During the test”.</li>
+    <li class="agreementNoClr"> Do not start test until you are absolutely ready to start! </li>
+    <li class="agreementNoClr"> You will have 30 minutes to complete “Fundamental” , “java” and “language” test. </li>
+    <li class="agreementNoClr"> The exam must  be completed in one sitting.You can only open it once. </li>
+    <li class="agreementNoClr"> Answer all the questions in test. </li>
+    <li class="agreementNoClr"> No negative marking. </li>
+    <li class="agreementNoClr"> Click “submit” button after completing test to get score </li>
+</ol>
+</p>
+
+<p><strong> If you face any issues during test you can contact us. </strong></p>
+<p align="center">    All the Best !! </p> -->
+
+    {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+     I agree with terms and conditions<br> <br>
+
+    {{#if selectedvalue}} 
+     <div class="panel-footer">
+                <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection'  'shoutout on social media & customised postcard'}}> Contribute </button> <br>
+            </div>
+
+    {{/if}}
+ 
+
+<!--<input type="checkbox">I agree with terms and conditions<br><br> -->
+</div>
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+   <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4><span class="glyphicon glyphicon-lock"></span> Contribution</h4>
+         </div>
+         <div class="modal-body">
+            {{message}}
+            <br/><br/>
+            <button type="submit" class="btn btn-block" {{action 'payment'}}> Pay
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+         </div>
+
+         <div class="modal-footer">
+            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+            </button>
+            <div class="mouse" data-dismiss="modal" {{action "showHelp"}}>Help?</div>
+         </div>
+      </div>
+   </div>
+</div>

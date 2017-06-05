@@ -1,0 +1,23 @@
+{{models-table data=model columns=columns useNumericPagination=true currentPageNumber=8 filteringIgnoreCase=true action='authorize'}}
+
+{{#if isPartAuthorize}}
+
+{{#modal-dialog close="toggleModal"
+targetAttachment="center"
+translucentOverlay=true}}
+<!--    Modal content-->
+<h4><span class="glyphicon glyphicon-lock"></span> Authorize Participants</h4>
+Do you want to authorize {{participantName}}?
+<div class="modal-body">
+    <button type="button" class="btn btn-color" {{action "authorizeParticipants"}}>Block</button>
+    <button type="button" class="btn btn-color" {{action "dismissModal"}}>Unblock</button>
+    {{input type="text" model=this valuePath="Remarks1" placeholder="Remarks"}}
+</div>
+{{/modal-dialog}}
+<!--
+   {{#modal-dialog close="dismissModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+        Participant {{participantName}} has been successfully authorized.
+    {{/modal-dialog}}-->
+{{/if}}

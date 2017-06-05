@@ -1,0 +1,12 @@
+{
+  "name": "crowdfunding",
+  "dependencies": {
+    "datatables.net": "^1.10.15",
+    "datatables.net-dt": "^3.2.2",
+    "datatables.net-plugins": "^1.10.13",
+    "d3": "~3.5.3",
+    "lodash": "~3.10.0",
+    "froala-wysiwyg-editor": "^2.6.1",
+    "font-awesome": "^4.7.0"
+  }
+}

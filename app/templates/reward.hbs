@@ -1,0 +1,252 @@
+<br/>
+<br/>
+<br/>
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Rewards!! </h3>
+                  {{rewardtitle}}
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-sm-4 bg-3">
+            <div class="panel text-center">
+                <div class="panel-heading">
+                    <h4>No Rewards<br>&nbsp;</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Special Shoutout on our social media
+                        <br>
+                        {{myrewardtitle}}
+                        <br> {{input type="text" value=amount placeholder='Please Amount for Contribution'}} {{amounterrormessage}}
+                    </p>
+                </div>
+                <div class="form-group ">
+                    <button type="button" class="btn btn-color" {{action "toggleModal"}}>Contribute</button>
+                    {{#if isShowingModal}} {{#modal-dialog close="toggleModal" targetAttachment="center" translucentOverlay=true}}
+                     <h2>Terms and Conditions  {{myrewardtitle}}</h2>
+                    <ul style="list-style-type:square">
+                <p>User should have valid accounts for payments.</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+       
+                    </ul>
+                   {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' this.amount 'shoutout on social media & customised postcard'}}> Submit </button>
+                    <br>
+                </div>
+                  {{/if}}
+                    {{/modal-dialog}} {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 bg-3">
+            <div class="panel text-center">
+                <div class="panel-heading">
+                    <h4>Rs.1000/-<br>Horse Power</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Special Shoutout on our social media handles and Delivery of customised postcard</p>
+                      {{!--   {{input type="text" value=quantity placeholder='Add quantity'}}--}}
+                </div>
+
+                <div class="form-group ">
+                    <button type="button" class="btn btn-color" {{action "addtocart"}}>Contribute</button>
+              
+                   {{#if isShowingModals}} {{#modal-dialog close="addtocart" targetAttachment="center" translucentOverlay=true}}
+                    <h2>Terms and Conditions</h2>
+                    <ul style="list-style-type:square">
+                 <p>User should have valid accounts for payments.</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+                    </ul>
+                  {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' '1000' 'shoutout on social media & customised postcard'}}> Submit </button>
+                    <br>
+                </div>
+                  {{/if}}
+                    {{/modal-dialog}} {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 bg-3">
+            <div class="panel text-center">
+                <div class="panel-heading">
+                    <h4>Rs.5000/-<br>Unstoppable</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Customized next tech lab swag(T-shirt + Postcard) + shoutout on our social media handles</p>
+                </div>
+
+                <div class="form-group ">
+                    <button type="button" class="btn btn-color" {{action "toggleModal2"}}>Contribute</button>
+                    {{#if isShowingModalss}} {{#modal-dialog close="toggleModal2" targetAttachment="center" translucentOverlay=true}}
+                     <h2>Terms and Conditions</h2>
+                    <ul style="list-style-type:square">
+                 <p>User should have valid accounts for payments</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+                    </ul>
+                     {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' '5000' 'shoutout on social media & customised postcard'}}> Select </button>
+                    <br>
+                </div>
+                  {{/if}}
+                    {{/modal-dialog}} {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 bg-3">
+        <div class="panel text-center">
+            <div class="panel-heading">
+                <h4>Rs.10000/-<br> &nbsp;</h4>
+            </div>
+             <div class="panel-body">
+                    <p>Customized next tech lab swag(T-shirt + Postcard) + shoutout on our social media handles</p>
+                </div>
+            <div class="form-group ">
+                <button type="button" class="btn btn-color" {{action "toggleModal3"}}>Contribute</button>
+                {{#if isShowingModalsss}} {{#modal-dialog close="toggleModal3" targetAttachment="center" translucentOverlay=true}}
+                <h2>Terms and Conditions</h2>
+                    <ul style="list-style-type:square">
+                <p>User should have valid accounts for payments.</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+                </ul>
+                 {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' '10000' 'shoutout on social media & customised postcard'}}> Select </button>
+                    <br>
+                </div>
+                  {{/if}}
+                {{/modal-dialog}} {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 bg-3">
+        <div class="panel text-center">
+            <div class="panel-heading">
+                <h4>Rs.25000/-<br>Lightspeed</h4>
+            </div>
+             <div class="panel-body">
+                    <p>Customized next tech lab swag(T-shirt + Postcard) + shoutout on our social media handles</p>
+                </div>
+            <div class="form-group ">
+                <button type="button" class="btn btn-color" {{action "toggleModal4"}}>Contribute</button>
+                {{#if isShowingModalssss}} {{#modal-dialog close="toggleModal4" targetAttachment="center" translucentOverlay=true}}
+               <h2>Terms and Conditions</h2>
+                    <ul style="list-style-type:square">
+                 <p>User should have valid accounts for payments.</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+                    </ul>
+                 {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' '25000' 'shoutout on social media & customised postcard'}}> Select </button>
+                    <br>
+                </div>
+                  {{/if}}
+                {{/modal-dialog}} {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 bg-3">
+        <div class="panel text-center">
+            <div class="panel-heading">
+                <h4>Rs.50000/-<br>Lift-Off</h4>
+            </div>
+            <div class="panel-body">
+                <p>Customized next tech lab swag(T-shirt + Postcard) + shoutout on our social media handles</p>
+            </div>
+            <div class="form-group ">
+                <button type="button" class="btn btn-color" {{action "toggleModal5"}}>Contribute</button>
+                {{#if isShowingModalsssss}} {{#modal-dialog close="toggleModal5" targetAttachment="center" translucentOverlay=true}}
+                 <h2>Terms and Conditions</h2>
+                    <ul style="list-style-type:square">
+                 <p>User should have valid accounts for payments.</p>
+                <p>Payment to be done in two stages.</p>
+                <p>If fund does not reach to its expected goal</p>
+                <p> amount of first stage then money will be refunded back.</p>
+                <p>If fund reaches to its expected goal amount in</p>
+                <p> first stage and if it fails to reach the expected </p>
+                <p>secound stage goal amount then amount will not be refunded.</p> 
+                    </ul>
+                   {{input type="checkbox" id="Inputcheckbox" checked=selectedvalue}}
+                     I agree with terms and conditions<br> <br>
+                      {{#if selectedvalue}} 
+                <div class="modal-header">
+                    <button type="button" class="btn btn-color" data-toggle="modal" data-target="#myModal" {{action 'rewardSelection' '50000' 'shoutout on social media & customised postcard'}}> Select </button>
+                    <br>
+                </div>
+                  {{/if}}
+                {{/modal-dialog}} {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4><span class="glyphicon glyphicon-lock"></span> Contribution</h4>
+            </div>
+            <div class="modal-body">
+                {{message}}
+                <br/>
+                <br/>
+                <button type="submit" class="btn btn-block" {{action 'payment'}}> Pay
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                </button>
+                <div class="mouse" data-dismiss="modal" {{action "showHelp"}}>Help?</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#if isShowingHelp}} {{#modal-dialog close="showHelp" targetAttachment="center" translucentOverlay=true}} {{partial 'help'}} {{/modal-dialog}} {{/if}}

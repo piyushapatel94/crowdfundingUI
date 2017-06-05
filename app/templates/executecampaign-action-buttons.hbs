@@ -1,0 +1,9 @@
+{{#if record.regStatus}}
+    {{#if record.campStatus}}
+        Completed
+    {{else}}
+        <button {{action 'sendAction' 'action' record}}>Complete</button>
+    {{/if}}
+{{else}}
+    <button {{action 'sendAction' 'action' record}}>Initiate</button>
+{{/if}}

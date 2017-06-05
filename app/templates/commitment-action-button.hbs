@@ -1,0 +1,5 @@
+{{#if record.rcveStatus}}
+    <button {{action 'sendAction' 'action' record}}>Received</button>
+{{else}}
+    {{record.commitmentStatus}}
+{{/if}}
