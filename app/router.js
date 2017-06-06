@@ -74,6 +74,7 @@ Router.map(function() {
   this.route('agreement');
   this.route('FAQs');
   this.route('introvideo');
+  this.route('healthcare');
 });
 
 export default Router;

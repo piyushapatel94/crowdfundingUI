@@ -92,9 +92,10 @@ export default Ember.Controller.extend({
                     }
                 }
                 console.log("JSON: "+ JSON.stringify(array));
-                 title=  JSON.stringify(array[0].rewardtitle);
+                title=  JSON.stringify(array[0].rewardtitle);
                 console.log('title :'+title);
-                  alert("title :",title);
+                 // alert("title :",title);
+                  
              //  this.set('myrewardtitle',title);
                /* array2=array.slice();
                 console.log("JSON2: "+ JSON.stringify(array2));*/

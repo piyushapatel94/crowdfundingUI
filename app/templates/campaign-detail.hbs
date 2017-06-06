@@ -10,6 +10,16 @@
             return "It looks like you have input you haven't submitted."
         }
     });
+
+    var count = 0;
+
+$(document).ready(function(){
+                $('#sharebutton').click( function() {
+                    var counter = $('#share').val();
+                    counter++ ;
+                    $('#share').val(counter);
+                });
+            });
 </script>
 
 <div class="row text-center">
@@ -69,7 +79,7 @@
     <div class="col-sm-4">
         <div>
             <div align="center">
-                <button class="btn btn-color">Shares <span class="badge"> 7</span> 
+                <button class="btn btn-color" id="sharebutton" value="0">Shares <span class="badge" id="share" value="+" > 7</span> 
                 </button>
             </div><br/><br/>
         </div>

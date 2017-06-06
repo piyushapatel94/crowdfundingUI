@@ -147,46 +147,6 @@ export default Ember.Controller.extend(Validations,{
         },
 
         createCampaign: function() {
-             let {
-               campaigntitle,
-               content,
-               contents,
-               goalamount,
-               startdeliverydate,
-               startproject,
-               enddeliverydate
-             } = this.getProperties('campaigntitle','content','contents','goalamount','startdeliverydate','startproject','enddeliverydate');
-            
-             var datastring={
-                 "campaigntitle": campaigntitle,
-                 "content":content,
-                 "contents":contents,
-                 "goalamount":goalamount,
-                 "startdeliverydate":startdeliverydate,
-                 "startproject":startproject,
-                 "enddeliverydate":enddeliverydate
-             };
-                   var mycontroller = this;
-                    return $.ajax({
-                     url: "localhost:",
-                     type: 'POST',
-                     accepts: 'application/json',
-                     data: JSON.stringify(dataString),
-                     success: function(response) {
-                   console.log(JSON.stringify(response));
-                  // message=response.message.message;
-                     //console.log(response.message);
-                   //mycontroller.toggleProperty('showRegResponse');
-                  // mycontroller.toggleProperty('isShowingModal');
-                 //  mycontroller.set('loading_image_visibility', "hide");
-                 //  mycontroller.transitionToRoute('home');              
-                  
-            },
-            error: function(result) {
-                   console.log('DEBUG: GET Enquiries Failed');
-            }
-           });
-
         },
 
         addRewards: function() {
@@ -213,6 +173,15 @@ export default Ember.Controller.extend(Validations,{
                 this.set('rewarddescriptionerrormessage', "field cannot be empty")
                 return;
             }
+           /*  let {
+               rewardtitle,
+               rewardamount,
+               rewarddescription,
+               
+             } = this.getProperties('rewardtitle','rewardamount','rewarddescription');*/
+            
+            
+                
 
             /*if (deliveryDate === null || deliveryDate === undefined || deliveryDate === "") {
                 this.set('dateerrormessage', "Date field cannot be empty")
@@ -281,7 +250,56 @@ export default Ember.Controller.extend(Validations,{
                     this.toggleProperty('isShowingModal');
                 }
             else{
-                    this.toggleProperty('isShowingModalss');
+
+                    let {
+               campaigntitle,
+               selectedtypes,
+               content,
+               contents,
+               goalamount,
+               startdeliverydate,
+               startproject,
+               enddeliverydate
+             } = this.getProperties('campaigntitle','selectedtypes','content','contents','goalamount','startdeliverydate','startproject','enddeliverydate');
+            
+             var datastring={
+                 "campaigntitle": campaigntitle,
+                 "selectedtypes":selectedtypes,
+                 "content":content,
+                 "contents":contents,
+                 "goalamount":goalamount,
+                 "startdeliverydate":startdeliverydate,
+                 "startproject":startproject,
+                 "enddeliverydate":enddeliverydate,
+                 
+             };
+                // console.log(CONFIG.GOURL);
+            //alert('YOU ARE SUCCESSFULLY REGISTERED');
+            //this.toggleProperty('isShowingModal');
+            //this.set('loading_image_visibility', "show");
+            var mycontroller = this;
+            var uid;
+            var message;
+            return $.ajax({
+            url: 'http://192.168.0.20:8000',
+            type: 'POST',
+            accepts: 'application/json',
+            data: JSON.stringify(datastring),
+            success: function(response) {
+                   console.log(JSON.stringify(response));
+                   message=response.message.message;
+                    // console.log(response.message);
+                   //mycontroller.set('uid',uid);
+                  // mycontroller.set('message',message);
+                   //mycontroller.toggleProperty('showRegResponse');
+                   mycontroller.toggleProperty('isShowingModalss');
+                  // mycontroller.set('loading_image_visibility', "hide");
+            },
+            error: function(result) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   //console.log('');
+            }
+           });
                 }
          },
 

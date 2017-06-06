@@ -39,17 +39,17 @@ export default Ember.Controller.extend(Validations,{
             //var deliveryDate = this.get('deliveryDate');
             
             if (rewardtitle === null || rewardtitle === undefined || rewardtitle === "") {
-                this.set('rewardtitleerrormessage', "field cannot be empty")
+                this.set('rewardtitleerrormessage', "field cannot be empty");
                 //return;
             }
 
             if (rewardamount === null || rewardamount === undefined || rewardamount === "") {
-                this.set('rewardamounterrormessage', "field cannot be empty")
+                this.set('rewardamounterrormessage', "field cannot be empty");
                 //return;
             }
 
             if (rewarddescription === null || rewarddescription === undefined || rewarddescription === "") {
-                this.set('rewarddescriptionerrormessage', "field cannot be empty")
+                this.set('rewarddescriptionerrormessage', "field cannot be empty");
                 return;
             }
 
@@ -57,6 +57,42 @@ export default Ember.Controller.extend(Validations,{
                 this.set('dateerrormessage', "Date field cannot be empty")
                 return;
             }*/
+
+             var datastring={
+                
+                "rewardtitle":rewardtitle,
+               "rewardamount":rewardamount,
+               "rewarddescription":rewarddescription,
+                 
+             };
+            //console.log(CONFIG.GOURL);
+            //alert('YOU ARE SUCCESSFULLY REGISTERED');
+       // this.toggleProperty('isShowingModal');
+         //   this.set('loading_image_visibility', "show");
+            var mycontroller = this;
+            var uid;
+            var message;
+            return $.ajax({
+            url: 'http://192.168.0.20:8000',
+            type: 'POST',
+            accepts: 'application/json',
+            data: JSON.stringify(datastring),
+            success: function(response) {
+                   console.log(JSON.stringify(response));
+                   message=response.message.message;
+                    // console.log(response.message);
+                   //mycontroller.set('uid',uid);
+                  // mycontroller.set('message',message);
+                   //mycontroller.toggleProperty('showRegResponse');
+                   mycontroller.toggleProperty('isSaveReward');
+                  // mycontroller.set('loading_image_visibility', "hide");
+            },
+            error: function(result) {
+                   console.log('DEBUG: GET Enquiries Failed');
+                   //console.log('');
+            }
+           });
+
             this.set('isAddReward', false);
             this.toggleProperty('isSaveReward');
            
