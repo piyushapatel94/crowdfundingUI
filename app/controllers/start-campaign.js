@@ -200,6 +200,9 @@ export default Ember.Controller.extend(Validations,{
             var startdeliverydate = this.get('startdeliverydate');
             var startproject = this.get('startproject');
             var enddeliverydate = this.get('enddeliverydate');
+
+            
+        
             if (campaigntitle === null || campaigntitle === undefined || campaigntitle === "") {
                 this.set('errormessage1', "field cannot be empty")
                 //this.toggleProperty('isShowingModal');
@@ -259,18 +262,24 @@ export default Ember.Controller.extend(Validations,{
                goalamount,
                startdeliverydate,
                startproject,
-               enddeliverydate
-             } = this.getProperties('campaigntitle','selectedtypes','content','contents','goalamount','startdeliverydate','startproject','enddeliverydate');
+               enddeliverydate,
+               rewardtitle,
+               rewardamount,
+               rewarddescription
+             } = this.getProperties('campaigntitle','selectedtypes','content','contents','goalamount','startdeliverydate','startproject','enddeliverydate','rewardtitle','rewardamount','rewarddescription');
             
              var datastring={
                  "campaigntitle": campaigntitle,
-                 "selectedtypes":selectedtypes,
-                 "content":content,
-                 "contents":contents,
+                 "camapigncategory":selectedtypes,
+                 "camapigndescription":content,
+                 "camapignstory":contents,
                  "goalamount":goalamount,
-                 "startdeliverydate":startdeliverydate,
-                 "startproject":startproject,
-                 "enddeliverydate":enddeliverydate,
+                 "startcampaigndate":startdeliverydate,
+                 "startprojectamount":startproject,
+                 "endcampaigndate":enddeliverydate,
+                 "rewardtitle":rewardtitle,
+                 "rewardamount":rewardamount,
+                 "rewarddescription":rewarddescription
                  
              };
                 // console.log(CONFIG.GOURL);
@@ -281,14 +290,14 @@ export default Ember.Controller.extend(Validations,{
             var uid;
             var message;
             return $.ajax({
-            url: 'http://192.168.0.20:8000',
+            url: 'http://192.168.0.20:8081/crowdfunding/createcampaign',
             type: 'POST',
             accepts: 'application/json',
             data: JSON.stringify(datastring),
             success: function(response) {
                    console.log(JSON.stringify(response));
                    message=response.message.message;
-                    // console.log(response.message);
+                     console.log(response.message);
                    //mycontroller.set('uid',uid);
                   // mycontroller.set('message',message);
                    //mycontroller.toggleProperty('showRegResponse');

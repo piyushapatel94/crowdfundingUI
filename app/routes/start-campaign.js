@@ -19,6 +19,22 @@ export default Ember.Route.extend({
         } else {
             this.controllerFor('application').set('userType', userType);
             this.controllerFor('application').set('showUser', true);
+
         }
+
+        var rewardtitle=this.controllerFor('addrewards').get('rewardtitle');
+           console.log(rewardtitle);
+        this.controllerFor('start-campaign').set('rewardtitle', rewardtitle);
+        
+        var rewardamount =this.controllerFor('addrewards').get('rewardamount');
+            console.log(rewardamount);
+        this.controllerFor('start-campaign').set('rewardamount', rewardamount);
+             
+        var rewarddescription =this.controllerFor('addrewards').get('rewarddescription');
+            console.log(rewarddescription);
+        this.controllerFor('start-campaign').set('rewarddescription', rewarddescription);
+                 
+
+
     }
 });

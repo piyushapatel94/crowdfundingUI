@@ -35,6 +35,18 @@ export default Ember.Controller.extend({
         },
         linkedin: function() {
              window.location.replace("https://in.linkedin.com/");
+        },
+        likebutton:function(){
+                console.log("in func");
+            if(typeof(Storage) !== "undefined") {
+                         console.log("in if condn");
+                 if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount)+1;
+                       console.log("increment:"+localStorage.clickcount);
+                     } else {
+                        localStorage.clickcount = 1;
+                        console.log(localStorage.clickcount);
+                         }
         }
-    }
+    }}
 });

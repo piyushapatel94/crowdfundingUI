@@ -37,7 +37,7 @@ export default Ember.Controller.extend(Validations,{
             var rewardamount = this.get('rewardamount');
             var rewarddescription = this.get('rewarddescription');
             //var deliveryDate = this.get('deliveryDate');
-            
+
             if (rewardtitle === null || rewardtitle === undefined || rewardtitle === "") {
                 this.set('rewardtitleerrormessage', "field cannot be empty");
                 //return;
@@ -58,7 +58,14 @@ export default Ember.Controller.extend(Validations,{
                 return;
             }*/
 
-             var datastring={
+           /*  var  datasend =[
+                    "rewardtitle"="myreward",
+                    "rewardamount"="5000",
+                    "rewarddescription"="This is rewards1"
+             ];
+             console.log(datasend);*/
+
+             /*var datastring={
                 
                 "rewardtitle":rewardtitle,
                "rewardamount":rewardamount,
@@ -73,7 +80,7 @@ export default Ember.Controller.extend(Validations,{
             var uid;
             var message;
             return $.ajax({
-            url: 'http://192.168.0.20:8000',
+            url: 'http://192.168.0.20:8081/crowdfunding/createcampaign',
             type: 'POST',
             accepts: 'application/json',
             data: JSON.stringify(datastring),
@@ -91,7 +98,7 @@ export default Ember.Controller.extend(Validations,{
                    console.log('DEBUG: GET Enquiries Failed');
                    //console.log('');
             }
-           });
+           });*/
 
             this.set('isAddReward', false);
             this.toggleProperty('isSaveReward');

@@ -1,3 +1,4 @@
+<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
 <script>
     // Enable navigation prompt
     //window.onbeforeunload = function() {
@@ -11,12 +12,13 @@
         }
     });
 
-    var count = 0;
+   
 
 $(document).ready(function(){
                 $('#sharebutton').click( function() {
                     var counter = $('#share').val();
                     counter++ ;
+                    console.log(counter);
                     $('#share').val(counter);
                 });
             });
@@ -88,7 +90,7 @@ $(document).ready(function(){
     <div class="col-sm-2">
         <div>
             <div align="center">
-                <button class="btn btn-color">Likes <span class="badge"> 25</span>
+                <button class="btn btn-color">Likes <span class="badge"{{action "likebutton"}}> 25</span>
                 </button>
             </div>
         </div>
