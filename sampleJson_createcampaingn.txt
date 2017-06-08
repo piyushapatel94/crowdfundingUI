@@ -1,0 +1,30 @@
+{
+	
+	"campaigntitle":"Help baby fight cancer"
+,              
+ 	"selectedtypes":
+ ["Education","Film","Dance"],              
+	"content":
+  "This is content",             
+	"contents":
+   "This is contents"             
+	"goalamount":
+  5000,            
+ 	"startdeliverydate":
+"11/06/2017",            
+   	"startproject"  :  "This is start projects",     
+ 	"enddeliverydate:"15/07/2017",
+	"reward":{
+			"reward1":{
+        				"rewardtitle":"myreward1",
+        				"rewardamount":"5000",
+       			 		"rewarddescription":"This is rewards1"
+    				},
+    			"reward2":{
+       				 "rewardtitle":"myreward2",
+       				 "rewardamount":"6000",
+       				 "rewarddescription":"This is rewards2"
+    				}
+		}
+
+}
