@@ -269,6 +269,7 @@ export default Ember.Controller.extend(Validations,{
              } = this.getProperties('campaigntitle','selectedtypes','content','contents','goalamount','startdeliverydate','startproject','enddeliverydate','rewardtitle','rewardamount','rewarddescription');
             
              var datastring={
+                
                  "campaigntitle": campaigntitle,
                  "camapigncategory":selectedtypes,
                  "camapigndescription":content,
@@ -277,11 +278,19 @@ export default Ember.Controller.extend(Validations,{
                  "startcampaigndate":startdeliverydate,
                  "startprojectamount":startproject,
                  "endcampaigndate":enddeliverydate,
-                 "rewardtitle":rewardtitle,
-                 "rewardamount":rewardamount,
-                 "rewarddescription":rewarddescription
-                 
+                 "reward":[
+                     {
+                        "reward1": 
+                    {
+                        "rewardtitle":rewardtitle,
+                        "rewardamount":rewardamount,
+                        "rewarddescription":rewarddescription
+                    }
+                }
+                 ]  
              };
+
+           
                 // console.log(CONFIG.GOURL);
             //alert('YOU ARE SUCCESSFULLY REGISTERED');
             //this.toggleProperty('isShowingModal');
@@ -289,11 +298,14 @@ export default Ember.Controller.extend(Validations,{
             var mycontroller = this;
             var uid;
             var message;
+            var mydata ;
+            //console.log(mydata);
             return $.ajax({
             url: 'http://192.168.0.20:8081/crowdfunding/createcampaign',
+
             type: 'POST',
             accepts: 'application/json',
-            data: JSON.stringify(datastring),
+            data: datastring,
             success: function(response) {
                    console.log(JSON.stringify(response));
                    message=response.message.message;

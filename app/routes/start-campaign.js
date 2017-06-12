@@ -34,7 +34,7 @@ export default Ember.Route.extend({
             console.log(rewarddescription);
         this.controllerFor('start-campaign').set('rewarddescription', rewarddescription);
                  
-
+       
 
     }
 });
